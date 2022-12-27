@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <h1> Hola, mundo</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sapiente temporibus corporis vel dolorem voluptas rerum suscipit, voluptatum aperiam numquam ullam quibusdam consequuntur harum sed dolor facere repellat cupiditate atque?</p>
+        <p>Nombre: {{nombre}}</p>
+        <p> Edad: {{edad}}</p>
+            <p>Planeta: {{planeta}}</p>
+        <p>Day: {{fecha.day}}</p>
+        <p>Month: {{fecha.month}}</p>
+        <p>Year: {{fecha.year}}</p>
+
+        {% if year > 2020 %}
+        <p>After the Plague</p>
+        {% else %}
+        <p> Before the Plague</p>
+        {% endif %}
+    </body>
+</html>
