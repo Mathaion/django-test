@@ -1,9 +1,13 @@
 from django.http import HttpResponse
-from django.template import Template, Context
+from django.template import Template, Context, loader
+from django.template.loader import get_template
+from django.shortcuts import render
+
 import datetime
 
 def saludo(request):
-    return HttpResponse("Hola mundo")
+    nombre = "Oppenheimer"
+    return render(request, "plantilla.html", {"nombre_persona":nombre})
 
 
 def get_fecha(request):
@@ -22,13 +26,18 @@ def calcular_edad(request, age, year):
     return HttpResponse(documento)
 
 def salu2(request):
-    archivo=open("C:/Users/usuario/Documents/Cursos/Python Codo a Codo/django/testdj/templates/plantilla.html")
+    archivo=open("C:/Users/Usuario/Documents/Matías/Coding/django-test/templates/plantilla.html")
     nombre = "Matías"
     edad = "27"
     planeta = "Saturno"
     fecha = datetime.datetime.now()
     lectura=Template(archivo.read())
     archivo.close()
-    ctx = Context({"nombre":nombre, "edad":edad, "planeta":planeta, "fecha":fecha, "year":2022})
+    assignments=["quantum mechanics", "general relativity", "the second law", "dark matter"]
+    ctx = Context({"nombre":nombre, "edad":edad, "planeta":planeta, "fecha":fecha, "year":2022, "cursos":assignments})
     documento = lectura.render(ctx)
     return HttpResponse(documento)
+
+def curso(request):
+    fecha = datetime.datetime.now()
+    return render(request,"curso.html", {"now":fecha})
