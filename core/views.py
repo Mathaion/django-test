@@ -18,11 +18,10 @@ def home(request):
     return HttpResponse(html_base + html_response)
 
 def about(request):
-    return HttpResponse(html_base + """
-        <h1>Mi Web Personal</h1>
-        <h2>Acerca de</h2>
-        <p>Now I've become death, destroyer of the worlds</p>
-    """)
+    return render(request, "core/about.html")
 
 def home(request):
     return render(request, "core/home.html")
+
+def contacto(request):
+    return render(request, "core/contacto.html")
