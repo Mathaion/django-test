@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from testdj.views import saludo, get_fecha, despedida_html, calcular_edad, salu2, curso
+from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,8 @@ urlpatterns = [
     path('despedida', despedida_html),
     path('calc_edad/<int:age>/<int:year>', calcular_edad),
     path('salu2/', salu2),
-    path('curso/', curso)
+    path('curso/', curso),
+   #path('home/', home),
+    path('', views.home),
+    path('about/', views.about),
 ]

@@ -40,4 +40,14 @@ def salu2(request):
 
 def curso(request):
     fecha = datetime.datetime.now()
-    return render(request,"curso.html", {"now":fecha})
+    lectura=Template(archivo.read())
+    documento = lectura.render(ctx)
+    return HttpResponse(documento)
+
+# def home(request):
+#    archivo=open("C:/Users/Usuario/Documents/Matías/Coding/django-test/templates/home.html")
+#    lectura=Template(archivo.read())
+#    archivo.close()
+#    ctx = Context({})
+#    documento = lectura.render(ctx)
+#    return HttpResponse(documento) 
